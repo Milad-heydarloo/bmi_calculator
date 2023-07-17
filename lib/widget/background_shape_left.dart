@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Left_shape extends StatelessWidget {
-  const Left_shape({super.key});
+  final double x;
+  const Left_shape({super.key, this.x = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class Left_shape extends StatelessWidget {
         children: [
           Container(
             height: 40,
-            width: 150,
+            width: x,
             decoration:
                 //in doresho gerd mikoneh
                 BoxDecoration(

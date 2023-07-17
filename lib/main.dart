@@ -15,8 +15,8 @@ class run_app extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Column(children: [
-            Right_shape(),
-            Left_shape(),
+            Right_shape(x: 124.0),
+            Left_shape(x: 145.0),
           ]),
         ),
       ),
