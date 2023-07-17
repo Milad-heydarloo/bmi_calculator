@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constance/constance.dart';
 import 'package:flutter/material.dart';
 
 class Right_shape extends StatelessWidget {
@@ -21,7 +22,7 @@ class Right_shape extends StatelessWidget {
                       bottomLeft: Radius.circular(20),
                       topLeft: Radius.circular(20),
                     ),
-                    color: Colors.amber),
+                    color: greenback),
           ),
         ],
       ),
