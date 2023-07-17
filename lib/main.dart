@@ -1,3 +1,5 @@
+import 'package:bmi_calculator/widget/background_shape_left.dart';
+import 'package:bmi_calculator/widget/background_shape_right.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,19 +14,7 @@ class run_app extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Container(
-            child: Text('data'),
-            //in decor ro mitonid poshte child kar konid
-            decoration:
-                //in doresho gerd mikoneh
-                BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(5),
-                  bottomRight: Radius.circular(5),
-                  topLeft: Radius.circular(5),
-                  topRight: Radius.circular(5)),
-            ),
-          ),
+          child: Container(child: Left_shape()),
         ),
       ),
     );
