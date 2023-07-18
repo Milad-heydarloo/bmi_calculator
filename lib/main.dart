@@ -31,7 +31,7 @@ class run_app extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: _app_bar(),
-        body: SafeArea(child: screen_app()),
+        body: SafeArea(child: screen_app_body()),
       ),
     );
   }

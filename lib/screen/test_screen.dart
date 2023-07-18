@@ -31,7 +31,7 @@ class _screen_app_bodyState extends State<screen_app_body> {
                 width: 130,
                 child: TextField(
                   //in control dahande in input usereh
-                  controller: weightcontrolerr,
+                  controller: hightcontrolerr,
                   //chon matn farsiyh
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -56,6 +56,7 @@ class _screen_app_bodyState extends State<screen_app_body> {
               Container(
                 width: 130,
                 child: TextField(
+                  controller: weightcontrolerr,
                   //chon matn farsiyh
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -81,12 +82,18 @@ class _screen_app_bodyState extends State<screen_app_body> {
           SizedBox(
             height: 50,
           ),
-          Text(
-            'محاسبه کن ',
-            style: TextStyle(
-              color: Colors.amber,
-              fontSize: 42,
-              fontWeight: FontWeight.bold,
+          InkWell(
+            //click user
+            //mikhaim ro matn click shod data az input gerfteh beshe va bereh to valu class
+
+            onTap: () {},
+            child: Text(
+              'محاسبه کن ',
+              style: TextStyle(
+                color: Colors.amber,
+                fontSize: 42,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           SizedBox(
