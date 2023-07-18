@@ -22,6 +22,10 @@ class Left_shape extends StatelessWidget {
                     ),
                     color: Colors.green),
           ),
+          Text(
+            'شاخص مثبت',
+            style: TextStyle(color: Colors.white),
+          ),
         ],
       ),
     );

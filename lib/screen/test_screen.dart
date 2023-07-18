@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../constance/constance.dart';
 import '../widget/background_shape_left.dart';
@@ -13,125 +14,180 @@ class screen_app_body extends StatefulWidget {
 
 //in ro tarif mikonim ta meghdar vorodi az karbar ro tosh save konim
 //bad boro to method textfild
-final weightcontrolerr = TextEditingController();
-final hightcontrolerr = TextEditingController();
 
 class _screen_app_bodyState extends State<screen_app_body> {
+  final weightcontrolerr = TextEditingController();
+  final hightcontrolerr = TextEditingController();
+//2ta valu tarif mikonim vase => log => number
+  double resu_lte = 0;
+  double plus = 0;
+  double main = 0;
+  String textii = '';
+//^ ina bayad inja tarif shan
+
+  PreferredSizeWidget _app_bar() {
+    return AppBar(
+      backgroundColor: Colors.black,
+      centerTitle: true,
+      titleTextStyle: TextStyle(color: Colors.white),
+      title: Text(
+        'تو چنده ؟  BMI',
+        style: TextStyle(fontSize: 25, fontFamily: 'dm'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            //faza ro beyneshon taqsim kon
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: _app_bar(),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 130,
-                child: TextField(
-                  //in control dahande in input usereh
-                  controller: hightcontrolerr,
-                  //chon matn farsiyh
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    //khat rahnama hazf
-                    border: InputBorder.none,
-                    hintText: 'قد',
+              SizedBox(height: 20),
+              Row(
+                //faza ro beyneshon taqsim kon
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    width: 130,
+                    child: TextField(
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "عدد قد اعشاری 1.82",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 3,
+                            backgroundColor: Colors.white,
+                            textColor: Colors.black,
+                            fontSize: 16.0);
+                      },
+                      //in control dahande in input usereh
+                      controller: hightcontrolerr,
+                      //chon matn farsiyh
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        //khat rahnama hazf
+                        border: InputBorder.none,
+                        hintText: ' قد',
 
-                    hintStyle: TextStyle(
-                      color: Colors.green,
+                        hintStyle: TextStyle(
+                          color: Colors.green,
+                        ),
+                      ),
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      //vorodi chi bashe
+
+                      keyboardType: TextInputType.number,
                     ),
                   ),
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  //vorodi chi bashe
+                  Container(
+                    width: 130,
+                    child: TextField(
+                      controller: weightcontrolerr,
 
-                  keyboardType: TextInputType.number,
-                ),
-              ),
-              Container(
-                width: 130,
-                child: TextField(
-                  controller: weightcontrolerr,
-                  //chon matn farsiyh
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    //khat rahnama hazf
-                    border: InputBorder.none,
-                    hintText: 'وزن',
+                      //chon matn farsiyh
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        //khat rahnama hazf
+                        border: InputBorder.none,
+                        hintText: 'وزن',
 
-                    hintStyle: TextStyle(
-                      color: Colors.red,
+                        hintStyle: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      //vorodi chi bashe
+                      keyboardType: TextInputType.number,
                     ),
                   ),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              InkWell(
+                //click user
+                //mikhaim ro matn click shod data az input gerfteh beshe va bereh to valu class
+
+                onTap: () {
+                  //convert data to double
+                  final wei = double.parse(weightcontrolerr.text);
+                  final hig = double.parse(hightcontrolerr.text);
+                  setState(() {
+                    resu_lte = wei / (hig * hig);
+                    if (resu_lte > 25) {
+                      main = 82;
+                      plus = 42;
+                      textii = 'شما اضافه وزن دارید';
+                    } else if (resu_lte >= 18.8 && resu_lte <= 25) {
+                      textii = 'وزن شما نرمال است';
+                      main = 10;
+                      plus = 82;
+                    } else {
+                      textii = 'وزن شما کمتر نرمال است';
+                      main = 82;
+                      plus = 42;
+                    }
+                  });
+                },
+                child: Text(
+                  'محاسبه کن ',
                   style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 30,
+                    color: Colors.amber,
+                    fontSize: 42,
                     fontWeight: FontWeight.bold,
                   ),
-                  //vorodi chi bashe
-                  keyboardType: TextInputType.number,
                 ),
               ),
+              SizedBox(
+                height: 60,
+              ),
+              Text(
+                //yani data ro neshon bede ke ashariyh vali ba 2ragham ashar
+                //   '${resulte.toStringAsFixed(2)}',
+                '${resu_lte.toStringAsFixed(2)}',
+
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Text(
+                '${textii}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Left_shape(x: plus),
+              SizedBox(
+                height: 1,
+              ),
+              Right_shape(x: main)
             ],
           ),
-          SizedBox(
-            height: 50,
-          ),
-          InkWell(
-            //click user
-            //mikhaim ro matn click shod data az input gerfteh beshe va bereh to valu class
-
-            onTap: () {},
-            child: Text(
-              'محاسبه کن ',
-              style: TextStyle(
-                color: Colors.amber,
-                fontSize: 42,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 60,
-          ),
-          Text(
-            '31',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 60,
-          ),
-          Text(
-            'شما در خطری',
-            style: TextStyle(
-              color: Colors.green,
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Left_shape(x: 120.0),
-          SizedBox(
-            height: 10,
-          ),
-          Right_shape(x: 120.0),
-          Left_shape(x: 120.0),
-          SizedBox(
-            height: 5,
-          ),
-          Right_shape(x: 120.0)
-        ],
+        ),
       ),
     );
   }
