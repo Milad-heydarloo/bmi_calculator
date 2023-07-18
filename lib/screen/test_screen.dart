@@ -4,9 +4,19 @@ import '../constance/constance.dart';
 import '../widget/background_shape_left.dart';
 import '../widget/background_shape_right.dart';
 
-class screen_app extends StatelessWidget {
-  const screen_app({super.key});
+class screen_app_body extends StatefulWidget {
+  const screen_app_body({super.key});
 
+  @override
+  State<screen_app_body> createState() => _screen_app_bodyState();
+}
+
+//in ro tarif mikonim ta meghdar vorodi az karbar ro tosh save konim
+//bad boro to method textfild
+final weightcontrolerr = TextEditingController();
+final hightcontrolerr = TextEditingController();
+
+class _screen_app_bodyState extends State<screen_app_body> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,6 +30,8 @@ class screen_app extends StatelessWidget {
               Container(
                 width: 130,
                 child: TextField(
+                  //in control dahande in input usereh
+                  controller: weightcontrolerr,
                   //chon matn farsiyh
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
