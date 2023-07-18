@@ -7,6 +7,18 @@ void main() {
   runApp(run_app());
 }
 
+PreferredSizeWidget _app_bar() {
+  return AppBar(
+    backgroundColor: Colors.black,
+    centerTitle: true,
+    titleTextStyle: TextStyle(color: Colors.white),
+    title: Text(
+      ' تو جنده ؟  BMI',
+      style: TextStyle(fontSize: 25, fontFamily: 'dm'),
+    ),
+  );
+}
+
 class run_app extends StatelessWidget {
   const run_app({super.key});
 
@@ -14,7 +26,8 @@ class run_app extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('BMI')),
+        backgroundColor: Colors.black,
+        appBar: _app_bar(),
         body: SafeArea(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
