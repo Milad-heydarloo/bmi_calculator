@@ -22,7 +22,7 @@ class Right_shape extends StatelessWidget {
                       bottomLeft: Radius.circular(20),
                       topLeft: Radius.circular(20),
                     ),
-                    color: greenback),
+                    color: Colors.red),
           ),
         ],
       ),
