@@ -12,28 +12,60 @@ class screen_app extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: 300,
-          child: TextField(
-            decoration: InputDecoration(
-              //khat rahnama hazf
-              border: InputBorder.none,
-              hintText: 'وزن',
+        Row(
+          //faza ro beyneshon taqsim kon
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              width: 130,
+              child: TextField(
+                //chon matn farsiyh
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  //khat rahnama hazf
+                  border: InputBorder.none,
+                  hintText: 'قد',
 
-              hintStyle: TextStyle(color: greenback),
-            ),
-            style: TextStyle(
-              color: greenback,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-            //vorodi chi bashe
+                  hintStyle: TextStyle(
+                    color: Colors.green,
+                  ),
+                ),
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                //vorodi chi bashe
 
-            keyboardType: TextInputType.number,
-          ),
+                keyboardType: TextInputType.number,
+              ),
+            ),
+            Container(
+              width: 130,
+              child: TextField(
+                //chon matn farsiyh
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  //khat rahnama hazf
+                  border: InputBorder.none,
+                  hintText: 'وزن',
+
+                  hintStyle: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                //vorodi chi bashe
+
+                keyboardType: TextInputType.number,
+              ),
+            ),
+          ],
         ),
-        Right_shape(x: 124.0),
-        Left_shape(x: 145.0),
       ],
     );
   }
