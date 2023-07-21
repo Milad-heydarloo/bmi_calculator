@@ -126,6 +126,7 @@ class _screen_app_bodyState extends State<screen_app_body> {
                   //convert data to double
                   final wei = double.parse(weightcontrolerr.text);
                   final hig = double.parse(hightcontrolerr.text);
+                  
                   setState(() {
                     resu_lte = wei / (hig * hig);
                     if (resu_lte > 25) {
