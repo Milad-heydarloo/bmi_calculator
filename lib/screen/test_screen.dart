@@ -145,6 +145,7 @@ class _screen_app_bodyState extends State<screen_app_body> {
                   });
                 },
 
+
                 child: Text(
                   'محاسبه کن ',
                   style: TextStyle(
@@ -157,17 +158,45 @@ class _screen_app_bodyState extends State<screen_app_body> {
               SizedBox(
                 height: 60,
               ),
-              Text(
-                //yani data ro neshon bede ke ashariyh vali ba 2ragham ashar
-                //   '${resulte.toStringAsFixed(2)}',
-                '${resu_lte.toStringAsFixed(2)}',
+              //hala age mikhaid in click ya onTap ye efect dashte bashe bayad
+              // be jaye GestureDetector an InkWell estefadeh konim \/ paiiin
+              Container(
+                height: 60,
+                width: 100,
+                child: InkWell(
 
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
+                customBorder: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ),
+                //onTap
+                splashColor: Colors.white,
+                onTap: () {
+                  Fluttertoast.showToast(
+                      msg: '${resu_lte.toStringAsFixed(2)}',
+                      // webShowClose: true,
+                      toastLength: Toast.LENGTH_SHORT,
+                      webBgColor: 12,
+                      gravity: ToastGravity.TOP,
+                      timeInSecForIosWeb: 3,
+                      backgroundColor: Colors.white,
+                      textColor: Colors.black,
+                      fontSize: 16.0);
+                },
+                child: Text(
+                  textAlign:TextAlign.center,
+                  //yani data ro neshon bede ke ashariyh vali ba 2ragham ashar
+                  //   '${resulte.toStringAsFixed(2)}',
+                  '${resu_lte.toStringAsFixed(2)}',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),),),
+
+
+
               SizedBox(
                 height: 60,
               ),
