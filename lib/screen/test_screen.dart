@@ -144,6 +144,7 @@ class _screen_app_bodyState extends State<screen_app_body> {
                     }
                   });
                 },
+
                 child: Text(
                   'محاسبه کن ',
                   style: TextStyle(
@@ -170,14 +171,34 @@ class _screen_app_bodyState extends State<screen_app_body> {
               SizedBox(
                 height: 60,
               ),
-              Text(
-                '${textii}',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+              GestureDetector(
+                //mitonim be widget hamon ba GestureDetector ghabeliyat tab ya click ezafe konim
+
+                child: Text(
+                  '${textii}',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                // in method maliyat anjam mideh
+                onTap: () {
+                  setState(() {
+                    Fluttertoast.showToast(
+                        msg: "bop",
+                       // webShowClose: true,
+                        toastLength: Toast.LENGTH_SHORT,
+                        webBgColor: 12,
+                        gravity: ToastGravity.TOP,
+                        timeInSecForIosWeb: 3,
+                        backgroundColor: Colors.white,
+                        textColor: Colors.black,
+                        fontSize: 16.0);
+                  });
+                },
               ),
+
               SizedBox(
                 height: 60,
               ),
